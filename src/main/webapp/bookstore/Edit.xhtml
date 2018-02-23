@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBookstoreTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBookstoreLabel_title}" for="title" />
+                    <h:inputText id="title" value="#{bookstoreController.selected.title}" title="#{bundle.EditBookstoreTitle_title}" required="true" requiredMessage="#{bundle.EditBookstoreRequiredMessage_title}"/>
+                    <h:outputLabel value="#{bundle.EditBookstoreLabel_year}" for="year" />
+                    <h:inputText id="year" value="#{bookstoreController.selected.year}" title="#{bundle.EditBookstoreTitle_year}" />
+                    <h:outputLabel value="#{bundle.EditBookstoreLabel_price}" for="price" />
+                    <h:inputText id="price" value="#{bookstoreController.selected.price}" title="#{bundle.EditBookstoreTitle_price}" />
+                    <h:outputLabel value="#{bundle.EditBookstoreLabel_author}" for="author" />
+                    <h:inputText id="author" value="#{bookstoreController.selected.author}" title="#{bundle.EditBookstoreTitle_author}" />
+                    <h:outputLabel value="#{bundle.EditBookstoreLabel_bookCategory}" for="bookCategory" />
+                    <h:inputText id="bookCategory" value="#{bookstoreController.selected.bookCategory}" title="#{bundle.EditBookstoreTitle_bookCategory}" required="true" requiredMessage="#{bundle.EditBookstoreRequiredMessage_bookCategory}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{bookstoreController.update}" value="#{bundle.EditBookstoreSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBookstoreViewLink}"/>
+                <br />
+                <h:commandLink action="#{bookstoreController.prepareList}" value="#{bundle.EditBookstoreShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBookstoreIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewBookstoreTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewBookstoreLabel_title}"/>
+                    <h:outputText value="#{bookstoreController.selected.title}" title="#{bundle.ViewBookstoreTitle_title}"/>
+                    <h:outputText value="#{bundle.ViewBookstoreLabel_year}"/>
+                    <h:outputText value="#{bookstoreController.selected.year}" title="#{bundle.ViewBookstoreTitle_year}"/>
+                    <h:outputText value="#{bundle.ViewBookstoreLabel_price}"/>
+                    <h:outputText value="#{bookstoreController.selected.price}" title="#{bundle.ViewBookstoreTitle_price}"/>
+                    <h:outputText value="#{bundle.ViewBookstoreLabel_author}"/>
+                    <h:outputText value="#{bookstoreController.selected.author}" title="#{bundle.ViewBookstoreTitle_author}"/>
+                    <h:outputText value="#{bundle.ViewBookstoreLabel_bookCategory}"/>
+                    <h:outputText value="#{bookstoreController.selected.bookCategory}" title="#{bundle.ViewBookstoreTitle_bookCategory}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{bookstoreController.destroyAndView}" value="#{bundle.ViewBookstoreDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewBookstoreEditLink}"/>
+                <br />
+                <h:commandLink action="#{bookstoreController.prepareCreate}" value="#{bundle.ViewBookstoreCreateLink}" />
+                <br />
+                <h:commandLink action="#{bookstoreController.prepareList}" value="#{bundle.ViewBookstoreShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewBookstoreIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

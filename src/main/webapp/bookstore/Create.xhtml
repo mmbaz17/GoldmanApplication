@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateBookstoreTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateBookstoreLabel_title}" for="title" />
+                    <h:inputText id="title" value="#{bookstoreController.selected.title}" title="#{bundle.CreateBookstoreTitle_title}" required="true" requiredMessage="#{bundle.CreateBookstoreRequiredMessage_title}"/>
+                    <h:outputLabel value="#{bundle.CreateBookstoreLabel_year}" for="year" />
+                    <h:inputText id="year" value="#{bookstoreController.selected.year}" title="#{bundle.CreateBookstoreTitle_year}" />
+                    <h:outputLabel value="#{bundle.CreateBookstoreLabel_price}" for="price" />
+                    <h:inputText id="price" value="#{bookstoreController.selected.price}" title="#{bundle.CreateBookstoreTitle_price}" />
+                    <h:outputLabel value="#{bundle.CreateBookstoreLabel_author}" for="author" />
+                    <h:inputText id="author" value="#{bookstoreController.selected.author}" title="#{bundle.CreateBookstoreTitle_author}" />
+                    <h:outputLabel value="#{bundle.CreateBookstoreLabel_bookCategory}" for="bookCategory" />
+                    <h:inputText id="bookCategory" value="#{bookstoreController.selected.bookCategory}" title="#{bundle.CreateBookstoreTitle_bookCategory}" required="true" requiredMessage="#{bundle.CreateBookstoreRequiredMessage_bookCategory}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{bookstoreController.create}" value="#{bundle.CreateBookstoreSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{bookstoreController.prepareList}" value="#{bundle.CreateBookstoreShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateBookstoreIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
